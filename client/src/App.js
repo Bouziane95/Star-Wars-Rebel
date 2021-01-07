@@ -8,6 +8,7 @@ import Planets from "./pages/Planets";
 import Spaceships from "./pages/Spaceships";
 import Species from "./pages/Species";
 import Vehicles from "./pages/Vehicles";
+import Card from "./components/Card";
 
 function App() {
   return (
@@ -15,12 +16,18 @@ function App() {
       <NavigationBar />
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/people" component={People} />
-        <Route path="/films" component={Films} />
-        <Route path="/planets" component={Planets} />
-        <Route path="/species" component={Species} />
-        <Route path="/vehicles" component={Vehicles} />
-        <Route path="/spaceships" component={Spaceships} />
+        <Route exact path="/people" component={People} />
+        <Route exact path="/films" component={Films} />
+        <Route exact path="/planets" component={Planets} />
+        <Route exact path="/species" component={Species} />
+        <Route exact path="/vehicles" component={Vehicles} />
+        <Route exact path="/spaceships" component={Spaceships} />
+        <Route exact path="/people/:id" component={Card} />
+        <Route exact path="/films/:id" component={Card} />
+        <Route exact path="/planets/:id" component={Card} />
+        <Route exact path="/species/:id" component={Card} />
+        <Route exact path="/vehicles/:id" component={Card} />
+        <Route exact path="/spaceships/:id" component={Card} />
       </Switch>
     </div>
   );

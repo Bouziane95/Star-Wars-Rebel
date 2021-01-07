@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import CardList from '../components/CardList';
 import { SearchBox } from "../components/SearchBox";
 
-export default class People extends Component {
+class People extends Component {
+
     constructor() {
     super();
 
@@ -26,11 +27,18 @@ export default class People extends Component {
   componentDidMount() {
     this.callApi("people")
       .then((res) => {
-        this.setState({ peoples: res.results });
+          this.setState({ peoples: res.results });
       })
       .catch((err) => {
         console.log(err);
       });
+  }
+
+  componentWillUnmount(){
+    //To avoid memory leaks ! It return null when escaping the component
+    this.setState = () =>{
+      return;
+    }
   }
 
   render() {
@@ -41,8 +49,11 @@ export default class People extends Component {
     return (
       <div className="App">
         <SearchBox onSearchChange={this.onSearchChange} />
-        <CardList peoples={filteredPeople} />
+        <CardList history= {this.props} data={filteredPeople} />
       </div>
     );
   }
 }
+
+export default People;
+

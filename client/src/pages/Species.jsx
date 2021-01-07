@@ -1,9 +1,56 @@
-import React from 'react'
+import React, { Component } from 'react'
+import CardList from '../components/CardList';
+import { SearchBox } from "../components/SearchBox";
 
-const Species = () => {
-    return <div>
-        <h1>Species</h1>
-    </div>
+export default class Species extends Component {
+
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             species: [],
+             searchField: "",
+        }
+    }
+
+    callApi = async (endpoint) => {
+        const response = await fetch("https://swapi.dev/api/" + endpoint);
+        const body = await response.json();
+        if (response.status !== 200) throw Error(body.message);
+        return body;
+      };
+
+    onSearchChange = (event) => {
+        this.setState({ searchField: event.target.value });
+      };
+
+    componentDidMount() {
+        this.callApi("species")
+          .then((res) => {
+              this.setState({ species: res.results });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+
+      componentWillUnmount(){
+        //To avoid memory leaks ! It return null when escaping the component
+        this.setState = () =>{
+          return;
+        }
+      }
+
+    render() {
+        const { species, searchField } = this.state;
+        const filteredSpecies = species.filter((species) =>
+        species.name.toLowerCase().includes(searchField.toLowerCase())
+    );
+        return (
+            <div className = 'App'>
+                <SearchBox onSearchChange={this.onSearchChange} />
+                <CardList history= {this.props} data={filteredSpecies} />
+            </div>
+        )
+    }
 }
-
-export default Species;

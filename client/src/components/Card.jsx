@@ -1,8 +1,12 @@
 import React from 'react';
+import CardList from './CardList';
 
-export const Card = (props) => {
+const Card = ({data}) => {
+    
+    //No key/id or image provided by the API...
     return <div className='card-container'>
-        {/* <img src="" alt="people"/> */}
-        <h2>{props.people.name}</h2>
+        <h1>Card ID</h1>
     </div>
 }
+
+export default Card;
