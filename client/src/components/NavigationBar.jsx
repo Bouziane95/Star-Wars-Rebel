@@ -11,7 +11,7 @@ export default class NavigationBar extends Component {
                 <NavLink exact to='/'>Home</NavLink>
                 <NavLink exact to='/people'>People</NavLink>
                 <NavLink exact to='/planets'>Planets</NavLink>
-                <NavLink exact to='/spaceships'>Spaceships</NavLink>
+                <NavLink exact to='/starships'>Starships</NavLink>
                 <NavLink exact to='/vehicles'>Vehicles</NavLink>
                 <NavLink exact to='/films'>Films</NavLink>
                 <NavLink exact to='/species'>Species</NavLink>

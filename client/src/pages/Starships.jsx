@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import CardList from '../components/CardList';
 import { SearchBox } from "../components/SearchBox";
 
-export default class Spaceships extends Component {
+export default class Starships extends Component {
 
     constructor(props) {
         super(props)
