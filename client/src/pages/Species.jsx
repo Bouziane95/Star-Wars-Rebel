@@ -47,7 +47,7 @@ export default class Species extends Component {
         species.name.toLowerCase().includes(searchField.toLowerCase())
     );
         return (
-            <div className = 'App'>
+            <div>
                 <SearchBox onSearchChange={this.onSearchChange} />
                 <CardList history= {this.props} data={filteredSpecies} />
             </div>

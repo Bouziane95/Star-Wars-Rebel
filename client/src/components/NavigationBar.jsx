@@ -6,15 +6,15 @@ export default class NavigationBar extends Component {
     
     render() {
         return (
-            <nav>
+            <nav className="navigation">
                 <ul className='container'>
-                <NavLink exact to='/'>Home</NavLink>
-                <NavLink exact to='/people'>People</NavLink>
-                <NavLink exact to='/planets'>Planets</NavLink>
-                <NavLink exact to='/starships'>Starships</NavLink>
-                <NavLink exact to='/vehicles'>Vehicles</NavLink>
-                <NavLink exact to='/films'>Films</NavLink>
-                <NavLink exact to='/species'>Species</NavLink>
+                <NavLink className="nav-link" exact to='/'>Home</NavLink>
+                <NavLink className="nav-link" exact to='/people'>People</NavLink>
+                <NavLink className="nav-link" exact to='/planets'>Planets</NavLink>
+                <NavLink className="nav-link" exact to='/starships'>Starships</NavLink>
+                <NavLink className="nav-link" exact to='/vehicles'>Vehicles</NavLink>
+                <NavLink className="nav-link" exact to='/films'>Films</NavLink>
+                <NavLink className="nav-link" exact to='/species'>Species</NavLink>
                 </ul> 
             </nav>
         )

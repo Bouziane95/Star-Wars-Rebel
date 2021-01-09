@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 export default class CardSpecies extends Component {
     constructor(props) {
@@ -50,16 +53,37 @@ export default class CardSpecies extends Component {
 
         return (
             <div>
-                <h1>Species ID</h1>
-                <p>{name}</p>
-                <p>{classification}</p>
-                <p>{designation}</p>
-                <p>{averageLifespan}</p>
-                <p>{averageHeight}</p>
-                <p>{skinColors}</p>
-                <p>{hairColors}</p>
-                <p>{eyeColors}</p>
-                <p>{language}</p>
+            <Card>
+        <h1>Species ID</h1>
+        <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>
+        <span>Classification : {classification}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Designation : {designation}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Average Lifespan : {averageLifespan} Years</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Average Height : {averageHeight} Kg</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Skin colors : {skinColors}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Hair colors : {hairColors}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Eye colors : {eyeColors}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Language : {language}</span>
+        </Card.Meta>
+    </Card.Content>
+        </Card>
             </div>
         )
     }

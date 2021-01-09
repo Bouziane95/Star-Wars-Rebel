@@ -47,7 +47,7 @@ export default class Planets extends Component {
         plnt.name.toLowerCase().includes(searchField.toLowerCase())
     );
         return (
-            <div className="App">
+            <div>
                 <SearchBox onSearchChange={this.onSearchChange} />
                 <CardList history= {this.props} data={filteredPlanets} />
             </div>

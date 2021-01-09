@@ -47,7 +47,7 @@ export default class Films extends Component {
         films.title.toLowerCase().includes(searchField.toLowerCase())
     );
         return (
-            <div className= 'App'>
+            <div>
                 <SearchBox onSearchChange={this.onSearchChange} />
                 <CardList history= {this.props} data={filteredFilms} />
             </div>

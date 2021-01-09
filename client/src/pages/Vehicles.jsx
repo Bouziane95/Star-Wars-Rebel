@@ -49,7 +49,7 @@ export default class Vehicles extends Component {
     );
 
         return (
-            <div className="App">
+            <div>
                 <SearchBox onSearchChange={this.onSearchChange} />
                 <CardList history= {this.props} data={filteredVehicles} />
             </div>

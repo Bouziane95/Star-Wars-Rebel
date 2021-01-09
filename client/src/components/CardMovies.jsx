@@ -1,15 +1,18 @@
 import React, { Component } from 'react'
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 export default class CardMovies extends Component {
     constructor(props) {
         super(props)
     
         this.state = {
-             title:"",
-             openingCrawl:"",
-             director: "",
-             producer: "",
-             releaseDate: "",
+            title:"",
+            openingCrawl:"",
+            director: "",
+            producer: "",
+            releaseDate: "",
         }
     }
 
@@ -41,12 +44,25 @@ export default class CardMovies extends Component {
         const {title, openingCrawl, director, producer, releaseDate} = this.state
         return (
             <div>
-                <h1>Movies ID</h1>
-                <p>{title}</p>
-                <p>{openingCrawl}</p>
-                <p>{director}</p>
-                <p>{producer}</p>
-                <p>{releaseDate}</p>
+            <Card>
+            <h1>Movies ID</h1>
+            <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{title}</Card.Header>
+        <Card.Meta>
+        <span>Description : {openingCrawl}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Director : {director}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Producer : {producer}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Release Date : {releaseDate}</span>
+        </Card.Meta>
+    </Card.Content>
+            </Card>
             </div>
         )
     }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 export default class CardPlanets extends Component {
     constructor(props) {
@@ -52,16 +55,37 @@ export default class CardPlanets extends Component {
         const {name, rotationPeriod, orbitalPeriod, diameter, climate, gravity, terrain, surfaceWater, population} = this.state
         return (
             <div>
-                <h1>Planets ID</h1>
-                <p>{name}</p>
-                <p>{rotationPeriod}</p>
-                <p>{orbitalPeriod}</p>
-                <p>{diameter}</p>
-                <p>{climate}</p>
-                <p>{gravity}</p>
-                <p>{terrain}</p>
-                <p>{surfaceWater}</p>
-                <p>{population}</p>                
+            <Card>
+            <h1>Planets ID</h1>
+            <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>
+        <span>Rotation Period : {rotationPeriod}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Orbital Period : {orbitalPeriod}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Diameter : {diameter} Km</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Climate : {climate}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Gravity : {gravity}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Terrain : {terrain}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Surface Water : {surfaceWater} Km</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Population : {population}</span>
+        </Card.Meta>
+    </Card.Content>
+            </Card>                
             </div>
         )
     }

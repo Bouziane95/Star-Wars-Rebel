@@ -47,7 +47,7 @@ export default class Starships extends Component {
         strshp.name.toLowerCase().includes(searchField.toLowerCase())
     );
         return (
-            <div className= "App">
+            <div>
                 <SearchBox onSearchChange={this.onSearchChange} />
                 <CardList history= {this.props} data={filteredStarships} />
             </div>

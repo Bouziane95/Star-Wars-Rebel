@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import CardList from '../components/CardList';
 import { SearchBox } from "../components/SearchBox";
 
+
 class People extends Component {
 
     constructor() {
@@ -47,7 +48,7 @@ class People extends Component {
       ppl.name.toLowerCase().includes(searchField.toLowerCase())
     );
     return (
-      <div className="App">
+      <div>
         <SearchBox onSearchChange={this.onSearchChange} />
         <CardList history= {this.props} data={filteredPeople} />
       </div>

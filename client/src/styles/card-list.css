@@ -5,3 +5,9 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;
   }
+
+.nav-link-name, .nav-link-title {
+  text-decoration: none;
+  color: rgb(197, 0, 12);
+  font-size: 30px;
+}

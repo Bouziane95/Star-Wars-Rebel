@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 class CardPeoples extends Component {
     constructor(props) {
@@ -41,12 +43,24 @@ class CardPeoples extends Component {
         const {name, gender, height, mass} = this.state;
 
         return (
-        <div className='card-container'>
+        <div className="bou">
+        
+        <Card>
         <h1>People ID</h1>
-        <p>{name}</p>
-        <p>{gender}</p>
-        <p>{height} Cm</p>
-        <p>{mass} Kg</p>
+        <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>
+        <span>Gender : {gender}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Height : {height} Cm</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Mass : {mass} Kg</span>
+        </Card.Meta>
+    </Card.Content>
+        </Card>
         </div>
         );
     }

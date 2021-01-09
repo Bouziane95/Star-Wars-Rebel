@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 export default class CardSpaceships extends Component {
     constructor(props) {
@@ -55,19 +58,46 @@ export default class CardSpaceships extends Component {
         const {name, model, manufacturer,length, costCredits, maxSpeed, crew, passengers, cargoCapacity,consumables, hyperdrive, MGLT} = this.state;
         return (
             <div>
-                <h1>Spaceships ID</h1>
-                <p>{name}</p>
-                <p>{model}</p>
-                <p>{manufacturer}</p>
-                <p>{length}</p>
-                <p>{costCredits}</p>
-                <p>{maxSpeed}</p>
-                <p>{crew}</p>
-                <p>{passengers}</p>
-                <p>{cargoCapacity}</p>
-                <p>{consumables}</p>
-                <p>{hyperdrive}</p>
-                <p>{MGLT}</p>
+            <Card>
+        <h1>Starships ID</h1>
+        <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>
+        <span>Model : {model}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Manufacturer : {manufacturer}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Length : {length}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Credits : {costCredits}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Max speed : {maxSpeed}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Crew : {crew}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Passengers : {passengers}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Cargo Capacity : {cargoCapacity}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Consumables : {consumables}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Hyperdrive : {hyperdrive}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>MGLT : {MGLT}</span>
+        </Card.Meta>
+    </Card.Content>
+        </Card>
             </div>
         )
     }

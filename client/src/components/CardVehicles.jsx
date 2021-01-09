@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {Card} from 'semantic-ui-react';
+import DefaultImage from '../images/default.png'
+import '../styles/images.css'
 
 export default class CardVehicles extends Component {
     constructor(props) {
@@ -47,14 +50,31 @@ export default class CardVehicles extends Component {
         const {name, model, manufacturer, costCredits, maxSpeed, crew, passengers} = this.state;
         return (
             <div>
-                <h1>Vehicles</h1>
-                <p>{name}</p>
-                <p>{model}</p>
-                <p>{manufacturer}</p>
-                <p>{costCredits}</p>
-                <p>{maxSpeed}</p>
-                <p>{crew}</p>
-                <p>{passengers}</p>
+            <Card>
+        <h1>Vehicles ID</h1>
+        <img className="default-img" src={DefaultImage} alt="Default" />
+    <Card.Content>
+        <Card.Header>{name}</Card.Header>
+        <Card.Meta>
+        <span>Model : {model}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Manufacturer : {manufacturer}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Credits : {costCredits}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Max speed : {maxSpeed}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Crew : {crew}</span>
+        </Card.Meta>
+        <Card.Meta>
+        <span>Passengers : {passengers}</span>
+        </Card.Meta>
+    </Card.Content>
+        </Card>
             </div>
         )
     }
