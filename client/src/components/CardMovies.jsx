@@ -26,7 +26,6 @@ export default class CardMovies extends Component {
     componentDidMount() {
         this.callApi(this.props.match.url)
         .then((res) => {
-            console.log(res)
             this.setState({
                 title: res.title,
                 openingCrawl: res.opening_crawl,
@@ -44,8 +43,10 @@ export default class CardMovies extends Component {
         const {title, openingCrawl, director, producer, releaseDate} = this.state
         return (
             <div>
+            
             <Card>
             <h1>Movies ID</h1>
+            <h2>No data in wookie for this section</h2>
             <img className="default-img" src={DefaultImage} alt="Default" />
     <Card.Content>
         <Card.Header>{title}</Card.Header>

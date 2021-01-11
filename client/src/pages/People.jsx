@@ -49,7 +49,7 @@ class People extends Component {
     );
     return (
       <div>
-        <SearchBox onSearchChange={this.onSearchChange} />
+        <SearchBox onSearchChange={this.onSearchChange}  />
         <CardList history= {this.props} data={filteredPeople} />
       </div>
     );

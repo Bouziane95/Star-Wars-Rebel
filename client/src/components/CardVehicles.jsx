@@ -28,7 +28,6 @@ export default class CardVehicles extends Component {
     componentDidMount() {
         this.callApi(this.props.match.url)
         .then((res) => {
-            console.log(res)
             this.setState({
                 name: res.name,
                 model: res.model,
@@ -44,12 +43,49 @@ export default class CardVehicles extends Component {
         });
     }
 
+    handleEvent = (event) => {
+        if (event.target.checked){
+            this.callApi(this.props.match.url + "?format=wookiee").then((res) => {
+                this.setState({
+                    name: res.whrascwo,
+                    model: res.scrawhhuwwraoaaohurcworc,
+                    manufacturer: res.howoacahoaanwo_oaanracc,
+                    costCredits: res.oaoocao_ahwh_oarcwowaahaoc,
+                    maxSpeed: res.akraccwowhrrworcc,
+                    crew: res.oarcwooh,
+                    passengers: res.akraccwowhrrworcc
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        } else {
+            this.callApi(this.props.match.url)
+            .then((res) => {
+            this.setState({
+                name: res.name,
+                model: res.model,
+                manufacturer: res.manufacturer,
+                costCredits: res.cost_in_credits,
+                maxSpeed: res.max_atmosphering_speed,
+                crew: res.crew,
+                passengers: res.passengers
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        }
+    }
+
 
     
     render() {
         const {name, model, manufacturer, costCredits, maxSpeed, crew, passengers} = this.state;
         return (
             <div>
+            <input type="checkbox" names="translation" onChange={this.handleEvent}/>
+            <label htmlFor="translation">Translate in Wookie</label>
             <Card>
         <h1>Vehicles ID</h1>
         <img className="default-img" src={DefaultImage} alt="Default" />

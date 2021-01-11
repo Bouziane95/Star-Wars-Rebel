@@ -8,18 +8,63 @@ export default class CardSpaceships extends Component {
         super(props)
     
         this.state = {
-             name: "",
-             model: "",
-             manufacturer: "",
-             costCredits: "",
-             length:"",
-             maxSpeed: "",
-             crew: "",
-             passengers: "",
-             cargoCapacity: "",
-             consumables: "",
-             hyperdrive: "",
-             MGLT : "",
+            name: "",
+            model: "",
+            manufacturer: "",
+            costCredits: "",
+            length:"",
+            maxSpeed: "",
+            crew: "",
+            passengers: "",
+            cargoCapacity: "",
+            consumables: "",
+            hyperdrive: "",
+            MGLT : "",
+        }
+    }
+
+    handleEvent = (event) => {
+        if (event.target.checked){
+            this.callApi(this.props.match.url + "?format=wookiee").then((res) => {
+                this.setState({
+                    name: res.whrascwo,
+                    model: res.scrawhhuwwraoaaohurcworc,
+                    manufacturer: res.caorarccacahak_oaanracc,
+                    length: res.anwowhrraoac,
+                    costCredits: res.oaoocao_ahwh_oarcwowaahaoc,
+                    maxSpeed: res.scrak_raaoscoocakacworcahwhrr_cakwowowa,
+                    crew: res.oarcwooh,
+                    passengers: res.akraccwowhrrworcc,
+                    cargoCapacity: res.oararcrroo_oaraakraoaahaoro,
+                    consumables : res.oaoowhchuscrarhanwoc,
+                    hyperdrive : res.acroakworcwarcahhowo_rcraaoahwhrr,
+                    MGLT : res.MGLT,
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        } else {
+            this.callApi(this.props.match.url)
+            .then((res) => {
+            this.setState({
+                name: res.name,
+                model: res.model,
+                manufacturer: res.manufacturer,
+                length: res.length,
+                costCredits: res.cost_in_credits,
+                maxSpeed: res.max_atmosphering_speed,
+                crew: res.crew,
+                passengers: res.passengers,
+                cargoCapacity: res.cargo_capacity,
+                consumables : res.consumables,
+                hyperdrive : res.hyperdrive_rating,
+                MGLT : res.MGLT,
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
         }
     }
 
@@ -33,7 +78,6 @@ export default class CardSpaceships extends Component {
     componentDidMount() {
         this.callApi(this.props.match.url)
         .then((res) => {
-            console.log(res)
             this.setState({
                 name: res.name,
                 model: res.model,
@@ -58,6 +102,8 @@ export default class CardSpaceships extends Component {
         const {name, model, manufacturer,length, costCredits, maxSpeed, crew, passengers, cargoCapacity,consumables, hyperdrive, MGLT} = this.state;
         return (
             <div>
+            <input type="checkbox" names="translation" onChange={this.handleEvent}/>
+            <label htmlFor="translation">Translate in Wookie</label>
             <Card>
         <h1>Starships ID</h1>
         <img className="default-img" src={DefaultImage} alt="Default" />

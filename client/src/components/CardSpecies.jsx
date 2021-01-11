@@ -30,7 +30,6 @@ export default class CardSpecies extends Component {
     componentDidMount() {
         this.callApi(this.props.match.url)
         .then((res) => {
-            console.log(res)
             this.setState({
                 name: res.name,
                 classification: res.classification,
@@ -55,6 +54,7 @@ export default class CardSpecies extends Component {
             <div>
             <Card>
         <h1>Species ID</h1>
+        <h2>No data in wookie for this section</h2>
         <img className="default-img" src={DefaultImage} alt="Default" />
     <Card.Content>
         <Card.Header>{name}</Card.Header>

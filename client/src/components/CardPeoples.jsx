@@ -15,6 +15,36 @@ class CardPeoples extends Component {
           };
     }
 
+    handleEvent = (event) => {
+        if (event.target.checked){
+            this.callApi(this.props.match.url + "?format=wookiee").then((res) => {
+                this.setState({
+                    name: res.whrascwo,
+                    gender: res.acraahrc_oaooanoorc,
+                    height: res.acwoahrracao,
+                    mass: res.scracc,
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
+        } else {
+            this.callApi(this.props.match.url)
+            .then((res) => {
+            
+            this.setState({
+                name: res.name,
+                gender: res.gender,
+                height: res.height,
+                mass: res.mass,
+            })
+        })
+        .catch((err) => {
+            console.log(err);
+        });
+        }
+    }
+
     callApi = async (endpoint) => {
         const response = await fetch("https://swapi.dev/api" + endpoint);
         const body = await response.json();
@@ -25,7 +55,7 @@ class CardPeoples extends Component {
     componentDidMount() {
         this.callApi(this.props.match.url)
           .then((res) => {
-              console.log(res)
+              
               this.setState({
                   name: res.name,
                   gender: res.gender,
@@ -38,13 +68,16 @@ class CardPeoples extends Component {
           });
       }
 
+      
+
     //No key/id or image provided by the API...
     render(){
         const {name, gender, height, mass} = this.state;
 
         return (
-        <div className="bou">
-        
+        <div>
+        <input type="checkbox" names="translation" onChange={this.handleEvent}/>
+        <label htmlFor="translation">Translate in Wookie</label>
         <Card>
         <h1>People ID</h1>
         <img className="default-img" src={DefaultImage} alt="Default" />
